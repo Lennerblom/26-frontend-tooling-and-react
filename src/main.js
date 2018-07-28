@@ -5,9 +5,6 @@ import ReactDOM from 'react-dom';
 import scss from './style/app.scss';
 import faker from 'faker';
 import { say, SQUIRREL,} from 'cowsay';
-// import cows from 'cows';
- 
-// cows();
 
 class App extends React.Component {
   constructor(props) {
@@ -22,16 +19,7 @@ this.onSelect = this.onSelect.bind(this);
 
   clickMe() {
 let lorem = faker.lorem.sentence(7);
-//let content = cows(CompuCow);
-// let content = say({
-//     text: lorem,
-//     cow: '', // Template for a cow, get inspiration from `./cows`
-//     eyes: 'oo', // Select the appearance of the cow's eyes, equivalent to cowsay -e
-//     tongue: 'L|', // The tongue is configurable similarly to the eyes through -T and tongue_string, equivalent to cowsay -T
-//     wrap: false, // If it is specified, the given message will not be word-wrapped. equivalent to cowsay -n
-//     wrapLength: 40, // Specifies roughly where the message should be wrapped. equivalent to cowsay -W
-//     mode: 'p', // One of 	"b", "d", "g", "p", "s", "t", "w", "y"
-//   });
+
 let content = say({text: lorem});
 this.setState({content})
 
@@ -42,12 +30,12 @@ this.setState({content})
     let content;
       if(e.target.value === ''){
           content = say({
-              text: 'press click me',
+              text: 'You moooost press click me',
               mode: 't'
             })
      } else {
     content = say({
-            text: 'I\'m nuts about React',
+            text: 'I\'m just NUTS, about React!!',
             cow: e.target.value, 
           })
     }
