@@ -21,7 +21,7 @@ this.onSelect = this.onSelect.bind(this);
   }
 
   clickMe() {
-let lorem = faker.lorem.sentence(10);
+let lorem = faker.lorem.sentence(7);
 //let content = cows(CompuCow);
 // let content = say({
 //     text: lorem,
@@ -52,6 +52,7 @@ this.setState({content})
         <select className='change' value={this.state.content} onChange={this.onSelect}>
             <option value=''>Cow</option>
             <option value={SQUIRREL}>Squirrel</option>
+            <option value=''>other cow</option>
             </select>
         <button className='change' onClick={this.clickMe}> click me </button>
         <pre className={this.state.content}> {this.state.content} </pre>
