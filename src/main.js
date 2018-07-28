@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom';
 import scss from './style/app.scss';
 import faker from 'faker';
 import { say, SQUIRREL,} from 'cowsay';
-//import cows from 'cows';
+// import cows from 'cows';
  
-//cows();
+// cows();
 
 class App extends React.Component {
   constructor(props) {
@@ -38,22 +38,32 @@ this.setState({content})
   }
 
   onSelect(e) {
-    //this.setState({content: event.target.value});
-    this.setState({
-      content: say({
-        text: 'I\'m nuts about React',
-        cow: e.target.value, 
-      })
-    });
-  }
+    e.preventDefault();
+    let content;
+      if(e.target.value === ''){
+          content = say({
+              text: 'press click me',
+              mode: 't'
+            })
+     } else {
+    content = say({
+            text: 'I\'m nuts about React',
+            cow: e.target.value, 
+          })
+    }
+    this.setState({content});
+ }
+
   render() {
       return( <React.Fragment>
         <h1>Generate Cowsay Lorem</h1>
+        <label>Animal
         <select className='change' value={this.state.content} onChange={this.onSelect}>
-            <option value=''>Cow</option>
+            <option value=''></option>
             <option value={SQUIRREL}>Squirrel</option>
-            <option value=''>other cow</option>
+            <option value=''>Cow</option>
             </select>
+            </label>
         <button className='change' onClick={this.clickMe}> click me </button>
         <pre className={this.state.content}> {this.state.content} </pre>
         </React.Fragment>
