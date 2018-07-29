@@ -6,6 +6,7 @@ import scss from './style/app.scss';
 import faker from 'faker';
 import { say, SQUIRREL,} from 'cowsay';
 
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +31,7 @@ this.setState({content})
     let content;
       if(e.target.value === ''){
           content = say({
-              text: 'You moooost press click me',
+              text: 'You mooooost press click me',
               mode: 't'
             })
      } else {
