@@ -5,9 +5,7 @@ import ReactDOM from 'react-dom';
 import scss from './style/app.scss';
 import faker from 'faker';
 import { say, SQUIRREL,} from 'cowsay';
-//import cows from 'cows';
- 
-//cows();
+
 
 class App extends React.Component {
   constructor(props) {
@@ -21,38 +19,40 @@ this.onSelect = this.onSelect.bind(this);
   }
 
   clickMe() {
-let lorem = faker.lorem.sentence(10);
-//let content = cows(CompuCow);
-// let content = say({
-//     text: lorem,
-//     cow: '', // Template for a cow, get inspiration from `./cows`
-//     eyes: 'oo', // Select the appearance of the cow's eyes, equivalent to cowsay -e
-//     tongue: 'L|', // The tongue is configurable similarly to the eyes through -T and tongue_string, equivalent to cowsay -T
-//     wrap: false, // If it is specified, the given message will not be word-wrapped. equivalent to cowsay -n
-//     wrapLength: 40, // Specifies roughly where the message should be wrapped. equivalent to cowsay -W
-//     mode: 'p', // One of 	"b", "d", "g", "p", "s", "t", "w", "y"
-//   });
+let lorem = faker.lorem.sentence(7);
+
 let content = say({text: lorem});
 this.setState({content})
 
   }
 
   onSelect(e) {
-    //this.setState({content: event.target.value});
-    this.setState({
-      content: say({
-        text: 'I\'m nuts about React',
-        cow: e.target.value, 
-      })
-    });
-  }
+    e.preventDefault();
+    let content;
+      if(e.target.value === ''){
+          content = say({
+              text: 'You mooooost press click me',
+              mode: 't'
+            })
+     } else {
+    content = say({
+            text: 'I\'m just NUTS, about React!!',
+            cow: e.target.value, 
+          })
+    }
+    this.setState({content});
+ }
+
   render() {
       return( <React.Fragment>
         <h1>Generate Cowsay Lorem</h1>
+        <label>Animal
         <select className='change' value={this.state.content} onChange={this.onSelect}>
-            <option value=''>Cow</option>
+            <option value=''></option>
             <option value={SQUIRREL}>Squirrel</option>
+            <option value=''>Cow</option>
             </select>
+            </label>
         <button className='change' onClick={this.clickMe}> click me </button>
         <pre className={this.state.content}> {this.state.content} </pre>
         </React.Fragment>

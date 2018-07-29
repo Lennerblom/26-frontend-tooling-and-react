@@ -1,4 +1,22 @@
 body{
  background: cornsilk;
  color: brown;
+ max-width: 100%;
+ margin: 0px, auto;
+ font-size: 1.5em
+}
+button {
+    background-color: lightgray;
+    border-radius: .4em;
+    margin: 1em;
+}
+button:hover {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+select {
+    margin: 1em;
+    background-color: lightgray;
+   
 }
