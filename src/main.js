@@ -1,13 +1,13 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import scss from './style/app.scss';
 import faker from 'faker';
 import { say, SQUIRREL,} from 'cowsay';
 
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +47,7 @@ this.setState({content})
       return( <React.Fragment>
         <h1>Generate Cowsay Lorem</h1>
         <label>Animal
-        <select className='change' value={this.state.content} onChange={this.onSelect}>
+        <select className='change' value={this.state.value} onChange={this.onSelect}>
             <option value=''></option>
             <option value={SQUIRREL}>Squirrel</option>
             <option value=''>Cow</option>
@@ -55,6 +55,9 @@ this.setState({content})
             </label>
         <button className='change' onClick={this.clickMe}> click me </button>
         <pre className={this.state.content}> {this.state.content} </pre>
+        {/* <form>
+            <input name="something" type="textarea"/>
+        </form> */}
         </React.Fragment>
       );
     }
